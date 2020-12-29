@@ -3,9 +3,9 @@
 #
 # Examples:
 #
-5.times do
-	Todo.create({
-		title: Faker::Superhero.name,
-		created_by: 'Sul'
+1.times do
+	User.create({
+		email: 'simbah@odet.com',
+		password: 'password'
 	})
 end

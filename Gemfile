@@ -26,28 +26,29 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 # Run against the latest stable release
 group :development, :test do
-  gem 'rspec-rails', '~> 4.0.1'
+  gem 'rspec-rails'
   gem 'faker'
   gem 'rubocop-faker'
   gem 'rubocop-rspec', require: false
+  gem 'simple_token_authentication'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
 # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3'
 end
 
 group :production do
-  gem 'pg', '~> 1.2', '>= 1.2.3'
+  gem 'pg'
   gem 'faker'
   #gem 'rails_12factor', '0.0.2'
 end
 
 group :test do
-  gem 'factory_bot_rails', '~> 4.0'
-  gem 'shoulda-matchers', '~> 3.1'
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
   gem 'database_cleaner'
 end
 

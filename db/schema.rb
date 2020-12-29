@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_180012) do
+ActiveRecord::Schema.define(version: 2020_12_29_150930) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -31,6 +31,10 @@ ActiveRecord::Schema.define(version: 2020_12_23_180012) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email"
+    t.string "password"
+    t.string "authentication_token"
+    t.index ["authentication_token"], name: "index_users_on_authentication_token"
   end
 
   add_foreign_key "items", "todos"
