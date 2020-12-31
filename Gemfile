@@ -15,10 +15,9 @@ gem 'puma', '~> 5.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'rspec-rails'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'faker'
-gem 'rubocop-faker'
-gem 'rubocop-rspec', require: false
 gem 'simple_token_authentication'
 
 gem 'responders'
@@ -34,13 +33,12 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 # Run against the latest stable release
 group :development, :test do
-  gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
-# Use sqlite3 as the database for Active Record
+  # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 end
 
