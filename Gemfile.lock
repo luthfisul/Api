@@ -222,6 +222,7 @@ DEPENDENCIES
   pg
   puma (~> 5.0)
   rails (~> 6.1.0)
+  responders
   rspec-rails
   rubocop-faker
   rubocop-rspec
