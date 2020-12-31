@@ -1,20 +1,20 @@
 class Api::SessionsController < ApplicationController
 	def new
-		user = User.new
 		
 	end
 
 	def create
-		user = User.where(email: params[:email]).first
-		user_save = User.where(password: params[:password]).first
+		user = User.where(email: params[:email])
+		user_valid = User.where(password: params[:password])
 
-		if user && user_save
-			render json: user.as_json(only: [:email, :authentication_token]), status: :created
+		if user && user_valid
+			render json: user.as_json(only: [:id, :email, :authentication_token]), status: :ok
 		else
 			head(:unauthorized)
 		end
 	end
 
 	def destroy
+		
 	end
 end

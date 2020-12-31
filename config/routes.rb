@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   end
   namespace 'api' do
   	resources :sessions
+  	resources :signup
   end
 end

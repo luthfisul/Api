@@ -216,6 +216,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   database_cleaner
+  devise (~> 4.7, >= 4.7.3)
   factory_bot_rails
   faker
   pg
