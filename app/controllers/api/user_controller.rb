@@ -1,5 +1,5 @@
 module Api
-	class SignupController < ApplicationController
+	class UserController < ApplicationController
 		def index
 			user = User.order('id ASC')
 			render json: {status: 'Success', message:'Users List', data:user}, status: :ok
