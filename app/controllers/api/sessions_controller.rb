@@ -4,13 +4,13 @@ class Api::SessionsController < ApplicationController
 	end
 
 	def create
-		user = User.where(email: params[:email])
-		user_valid = User.where(password: params[:password])
-
-		if user && user_valid
-			render json: user.as_json(only: [:id, :email, :authentication_token]), status: :ok
+		user = User.find_by(email: params[:email])
+		user_valid = User.find_by(password: params[:password])
+		
+		if user and user_valid
+			render json: user.as_json(only: [:id, :username, :email, :authentication_token]), status: :ok
 		else
-			head(:unauthorized)
+			status(:unprocessable_entity)
 		end
 	end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_29_150930) do
+ActiveRecord::Schema.define(version: 2021_01_02_225807) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2020_12_29_150930) do
     t.string "email"
     t.string "password"
     t.string "authentication_token"
+    t.string "username"
+    t.string "confirmation_password"
     t.index ["authentication_token"], name: "index_users_on_authentication_token"
   end
 

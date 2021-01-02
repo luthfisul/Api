@@ -2,7 +2,7 @@ module Api
 	class UserController < ApplicationController
 		def index
 			user = User.order('id ASC')
-			render json: {status: 'Success', message:'Users List', data:user}, status: :ok
+			render json: user.as_json(only: [:id, :username, :email, :authentication_token]), status: :ok
 		end
 
 		def show
@@ -41,7 +41,7 @@ module Api
 		private
 
 		def user_params
-			params.permit(:email, :password, :authentication_token)
+			params.permit(:username, :email, :password, :confirmation_password, :authentication_token)
 		end
 
 	end
