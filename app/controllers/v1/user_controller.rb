@@ -1,42 +1,25 @@
 module V1
 	class UserController < ApplicationController
 		def index
-			user = User.order('id ASC')
-			render json: user.as_json(
-				only: [
-					:id,
-					:username,
-					:email,
-					:authentication_token
-				]),
-			status: :ok
+			@user = User.order('remember_created_at DESC')
+			render :index, status: :ok 
 		end
 
 		def show
-			user = User.find(params[:id])
-			render json: {
-				status:'Showed',
-				message:'User founded',
-				data:user
-			},
-			status: :ok
+			@user = User.find(params[:id])
+			render :show, status: :ok
 		end
 
 		def create
-			user = User.new(user_params)
-			user.authentication_token.blank?
+			@user = User.new(user_params)
+			@user.authentication_token.blank?
 
-			if user.save
-				render json: {
-					status:'Saved',
-					message:'Data saved',
-					data:user
-				},
-				status: :ok
+			if @user.save
+				render :create, status: :created
 			else
 				render json: {
 					status:'Failed',
-					message:'Data failed to save!',
+					alert:'Data failed to create!',
 					data:user.errors
 				},
 				status: :unprocessable_entity
@@ -44,32 +27,26 @@ module V1
 		end
 
 		def destroy
-			user = User.find(params[:id])
-			user.destroy
+			@user = User.find(params[:id])
+			@user.destroy
 
 			render json: {
 				status:'Deleted',
-				message:'Data deleted',
-				data:user
+				message:'Data has been deleted'
 			},
 			status: :ok
 		end
 
 		def update
-			user = User.find(params[:id])
-			user.authentication_token.blank?
+			@user = User.find(params[:id])
+			@user.authentication_token.blank?
 
-			if user.update(user_params)
-				render json: {
-					status:'Updated',
-					message:'Data updated', 
-					data:user
-				},
-				status: :ok
+			if @user.update(user_params)
+				render :update, status: :ok
 			else
 				render json: {
 					status:'Failed',
-					message:'Data failed to update!',
+					alert:'Data failed to update!',
 					data:user.errors
 				},
 				status: :unprocessable_entity
