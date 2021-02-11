@@ -1,12 +1,16 @@
 json.data do
-	json.message "Login success"
-	json.user do
-		json.call(
-			@user,
-			:id,
-			:username,
-			:email,
-			:authentication_token
-		)
-	end
+	json.call(
+		@user,
+		:id,
+		:username,
+		:name,
+		:phone,
+		:email,
+		:imgUrl,
+		:authentication_token
+	)
+end
+json.meta do
+	json.statusCode 200
+	json.message "Login Success!"
 end

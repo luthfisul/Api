@@ -1,14 +1,16 @@
 json.data do
-	json.status"Created"
-	json.message"Data has been created"
-
-	json.user do
-		json.call(
-			@user,
-			:id,
-			:username,
-			:email,
-			:authentication_token
-		)
-	end
+	json.call(
+		@user,
+		:id,
+		:username,
+		:name,
+		:phone,
+		:email,
+		:imgUrl,
+		:authentication_token
+	)
+end
+json.meta do
+	json.statusCode 200
+	json.message " Success Register!"
 end
