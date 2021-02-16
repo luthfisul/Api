@@ -5,7 +5,7 @@ class V1::SessionsController < ApplicationController
 		if @user and @user.valid_password?(params[:password])
 			render :create, status: :ok 
 		else
-			head(:unauthorized)
+			render :invalid, status: :unprocessable_entity
 		end
 	end
 

@@ -11,6 +11,6 @@ json.data do
 	)
 end
 json.meta do
+	json.message "Success Login!"
 	json.statusCode 200
-	json.message "Login Success!"
 end

@@ -12,5 +12,5 @@ json.data do
 end
 json.meta do
 	json.statusCode 200
-	json.message " Success Register!"
+	json.message "Success Register!"
 end

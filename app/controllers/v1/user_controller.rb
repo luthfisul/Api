@@ -17,12 +17,7 @@ module V1
 			if @user.save
 				render :create, status: :created
 			else
-				render json: {
-					status:'Failed',
-					alert:'Data failed to create!',
-					data:user.errors
-				},
-				status: :unprocessable_entity
+				render :fail, status: :unprocessable_entity
 			end
 		end
 
@@ -30,11 +25,7 @@ module V1
 			@user = User.find(params[:id])
 			@user.destroy
 
-			render json: {
-				status:'Deleted',
-				message:'Data has been deleted'
-			},
-			status: :ok
+			render :destroy, status: :ok
 		end
 
 		def update
@@ -44,12 +35,7 @@ module V1
 			if @user.update(user_params)
 				render :update, status: :ok
 			else
-				render json: {
-					status:'Failed',
-					alert:'Data failed to update!',
-					data:user.errors
-				},
-				status: :unprocessable_entity
+				render :fail, status: :unprocessable_entity
 			end
 		end
 
